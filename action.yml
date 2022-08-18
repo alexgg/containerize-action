@@ -1,0 +1,14 @@
+name: 'Containerize filesystem'
+description: 'Creates a container image from compressed tarball'
+inputs:
+  targz:
+    required: true
+    type: string
+outputs:
+  image:
+    description: 'Path to container image'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.targz }}
